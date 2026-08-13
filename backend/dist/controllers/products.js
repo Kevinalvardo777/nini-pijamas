@@ -35,6 +35,28 @@ const productInclude = {
     images: { orderBy: [{ isPrimary: "desc" }, { position: "asc" }] },
     category: true
 };
+const MAX_LIST_IMAGE_URL_LENGTH = 2048;
+const listFallbackImages = [
+    "/pijama1.png",
+    "/pijama2.png",
+    "/pijama3.png",
+    "/pijama4.png",
+    "/pijama5.png",
+    "/pijama-pinterest1.png",
+    "/pijama-pinterest2.png",
+    "/pijama-pinterest3.png"
+];
+const fallbackImageForProduct = (product, imageIndex = 0, productIndex = 0) => {
+    const hasStableProductKey = Boolean(product.slug ?? product.id ?? product.name);
+    const baseIndex = hasStableProductKey ? productIndex : 0;
+    return listFallbackImages[(baseIndex + imageIndex) % listFallbackImages.length];
+};
+const mapListImages = (product, productIndex) => product.images.map((image, index) => ({
+    ...image,
+    url: typeof image.url === "string" && image.url.length <= MAX_LIST_IMAGE_URL_LENGTH
+        ? image.url
+        : fallbackImageForProduct(product, index, productIndex)
+}));
 const normalizeImages = (images) => {
     const safeImages = images ?? [];
     const primaryIndex = Math.max(0, safeImages.findIndex((image) => image.isPrimary));
@@ -104,11 +126,12 @@ const listProductsController = async (req, res) => {
         orderBy,
         include: productInclude
     });
-    const mapped = products.map((p) => ({
+    const mapped = products.map((p, productIndex) => ({
         ...p,
         colors: typeof p.colors === "string" ? JSON.parse(p.colors) : p.colors,
         sizes: typeof p.sizes === "string" ? JSON.parse(p.sizes) : p.sizes,
-        tags: typeof p.tags === "string" ? JSON.parse(p.tags) : p.tags
+        tags: typeof p.tags === "string" ? JSON.parse(p.tags) : p.tags,
+        images: mapListImages(p, productIndex)
     }));
     res.json({ products: mapped });
 };

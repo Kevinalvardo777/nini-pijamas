@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
+import ClientTelemetry from "../components/ClientTelemetry";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import "./globals.css";
 
@@ -81,7 +83,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="organization-json-ld" type="application/ld+json" strategy="beforeInteractive">
           {JSON.stringify(organizationJsonLd)}
         </Script>
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <ClientTelemetry />
+          <GoogleAnalytics />
+        </Suspense>
       </body>
     </html>
   );

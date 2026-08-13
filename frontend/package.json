@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "predev": "if exist .next rmdir /s /q .next",
+    "dev": "set WATCHPACK_POLLING=true&& set CHOKIDAR_USEPOLLING=true&& next dev --hostname 127.0.0.1 --port 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
