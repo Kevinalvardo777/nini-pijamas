@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const whatsapp_1 = require("../controllers/whatsapp");
+const auth_1 = require("../middleware/auth");
+const role_1 = require("../middleware/role");
+const router = (0, express_1.Router)();
+router.post("/order/:orderId", auth_1.authenticate, (0, role_1.requireRole)("ADMIN"), whatsapp_1.sendOrderMessageController);
+router.post("/delivery/:orderId", auth_1.authenticate, (0, role_1.requireRole)("ADMIN"), whatsapp_1.sendDeliveryMessageController);
+exports.default = router;
