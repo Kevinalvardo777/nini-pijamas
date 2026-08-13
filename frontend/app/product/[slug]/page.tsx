@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import BackBar from "../../../components/BackBar";
 import ProductDetail from "../../../components/ProductDetail";
 import { fetchProductBySlug } from "../../../lib/api";
 import { Product } from "../../../types";
@@ -69,7 +70,8 @@ export default async function ProductPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <BackBar />
+      <main className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <ProductDetail product={product} />
       </main>
       <Footer />

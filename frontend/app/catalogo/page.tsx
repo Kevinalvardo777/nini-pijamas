@@ -1,5 +1,6 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 import ProductSearchFilter from "../../components/ProductSearchFilter";
 import { fetchProducts } from "../../lib/api";
 import { Product } from "../../types";
@@ -62,7 +63,8 @@ export default async function CatalogoPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Header />
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <BackBar fallbackHref="/" />
+      <main className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <section className="rounded-[3rem] bg-white p-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)] ring-1 ring-slate-200">
           <div className="mb-10 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
             <div>

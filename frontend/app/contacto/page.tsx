@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { Mail, MapPin, MessageCircle, Send, UserRound } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 
 type ContactErrors = {
   name?: string;
@@ -60,7 +61,8 @@ export default function ContactoPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <BackBar fallbackHref="/" />
+      <main className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <section className="border-b border-slate-200 pb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-rose-500">Contacto</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-semibold text-slate-950">Te ayudamos a elegir talla, stock o coordinar tu pedido</h1>

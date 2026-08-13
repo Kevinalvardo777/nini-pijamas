@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Heart, PackageCheck, ShoppingBag, UserRound } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ProductCard from "../../components/ProductCard";
 import { fetchMyOrders, fetchProducts } from "../../lib/api";
@@ -105,7 +106,8 @@ export default function AccountPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <BackBar />
+      <main className="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
         <section className="border-b border-slate-200 pb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-rose-500">Mi cuenta</p>
           <h1 className="mt-3 text-3xl font-semibold text-slate-950">

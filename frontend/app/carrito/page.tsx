@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 import { useCartStore } from "../../store/cart";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { fetchProducts } from "../../lib/api";
@@ -103,7 +104,8 @@ export default function CarritoPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <BackBar />
+      <main className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] bg-white p-8 shadow-[0_30px_90px_rgba(15,23,42,0.08)]">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Carrito</p>

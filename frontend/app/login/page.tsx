@@ -5,6 +5,7 @@ import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { loginUser, apiUrl } from "../../lib/api";
 import { useAuthStore } from "../../store/auth";
@@ -106,7 +107,8 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="mx-auto flex min-h-[calc(100vh-96px)] max-w-5xl flex-col justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <BackBar fallbackHref="/" />
+      <main className="mx-auto flex min-h-[calc(100vh-140px)] max-w-5xl flex-col justify-center px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.08)]">
           <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
             <aside className="border-b border-slate-200 bg-rose-50 p-8 sm:p-10 lg:border-b-0 lg:border-r">

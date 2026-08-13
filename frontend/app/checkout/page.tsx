@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { CheckCircle2, CreditCard, ImagePlus, MapPin, MessageCircle, PackageCheck, UserRound } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { useCartStore } from "../../store/cart";
 import { useAuthStore } from "../../store/auth";
@@ -282,7 +283,8 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <BackBar />
+      <main className="mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
         <div className="border-b border-slate-200 pb-6">
           <p className="text-xs uppercase tracking-[0.25em] text-rose-500">Checkout</p>
           <h1 className="mt-2 text-3xl font-semibold text-slate-950">Finaliza tu compra</h1>

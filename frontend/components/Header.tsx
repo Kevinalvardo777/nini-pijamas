@@ -50,13 +50,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" onClick={closeMobileMenu} className="flex min-w-0 items-center gap-3 text-slate-900" aria-label="Ir al inicio de Nini Pijamas">
-          <img src="/nini-pijamas-logo.png" alt="Logo de Nini Pijamas" className="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12 lg:h-16 lg:w-16" />
-          <div className="min-w-0">
-            <p className="truncate text-[11px] uppercase tracking-[0.18em] text-slate-500 sm:text-xs lg:text-sm lg:tracking-[0.28em]">NINI PIJAMAS</p>
-            <p className="truncate text-xs font-semibold text-slate-900 sm:text-sm">Boutique nocturna</p>
-          </div>
-        </Link>
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <Link href="/" onClick={closeMobileMenu} className="flex min-w-0 items-center gap-3 text-slate-900" aria-label="Ir al inicio de Nini Pijamas">
+            <img src="/nini-pijamas-logo.png" alt="Logo de Nini Pijamas" className="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12 lg:h-16 lg:w-16" />
+            <div className="min-w-0">
+              <p className="truncate text-[11px] uppercase tracking-[0.18em] text-slate-500 sm:text-xs lg:text-sm lg:tracking-[0.28em]">NINI PIJAMAS</p>
+              <p className="truncate text-xs font-semibold text-slate-900 sm:text-sm">Boutique nocturna</p>
+            </div>
+          </Link>
+        </div>
 
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Navegacion principal">
           <Link href="/catalogo" className="text-sm font-medium text-slate-700 hover:text-slate-900">Catalogo</Link>

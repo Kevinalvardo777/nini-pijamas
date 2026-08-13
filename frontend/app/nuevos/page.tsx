@@ -1,5 +1,6 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import BackBar from "../../components/BackBar";
 import PaginatedProductGrid from "../../components/PaginatedProductGrid";
 import { fetchProducts } from "../../lib/api";
 import { Product } from "../../types";
@@ -116,7 +117,8 @@ export default async function NuevosPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Header />
-      <main className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
+      <BackBar fallbackHref="/" />
+      <main className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
         <section className="mb-12 rounded-[3rem] bg-white p-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)] ring-1 ring-slate-200">
           <p className="text-xs uppercase tracking-[0.3em] text-rose-500">Nuevos ingresos</p>
           <h1 className="mt-3 text-4xl font-semibold text-slate-900">Lo último en pijamas</h1>
